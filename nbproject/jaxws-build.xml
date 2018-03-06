@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-MySIWEBConta" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MySIWEBConta"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MySIWEBConta" destdir="${build.generated.dir}/jax-wsCache/MySIWEBConta" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MySIWEBConta/wsdl/localhost_8084/ContabilidadPlus/MySIWEBConta.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8084/ContabilidadPlus/MySIWEBConta?wsdl" xnocompile="true" xendorsed="true" package="Interfaz.ContabilidadPlus" target="2.1">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MySIWEBConta/wsdl/localhost_8084/ContabilidadPlus/MySIWEBConta.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MySIWEBConta"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MySIWEBConta">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MySIWEBConta" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/Interfaz/ContabilidadPlus"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MySIWEBConta"/>
+    </target>
+    <target name="wsimport-client-InterconectaWs" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/InterconectaWs"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InterconectaWs" destdir="${build.generated.dir}/jax-wsCache/InterconectaWs" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InterconectaWs/wsdl/cmm.from-la.net_8080/CMM/InterconectaWs.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://cmm.from-la.net:8080/CMM/InterconectaWs?wsdl" xnocompile="true" package="Core.FirmasElectronicas.pac.facturasegundos" target="2.1">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InterconectaWs/wsdl/cmm.from-la.net_8080/CMM/InterconectaWs.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/InterconectaWs"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InterconectaWs">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-InterconectaWs" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/Core/FirmasElectronicas/pac/facturasegundos"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/InterconectaWs"/>
+    </target>
+    <target name="wsimport-client-CancelaCFDService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CancelaCFDService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CancelaCFDService" destdir="${build.generated.dir}/jax-wsCache/CancelaCFDService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CancelaCFDService/wsdl/cancelacion.facturaelectronica.sat.gob.mx/Cancelacion/CancelaCFDService.svc.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="https://cancelacion.facturaelectronica.sat.gob.mx/Cancelacion/CancelaCFDService.svc?singleWsdl" xnocompile="true" package="Core.FirmasElectronicas.SAT3_2.cancelacion" target="2.1">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CancelaCFDService/wsdl/cancelacion.facturaelectronica.sat.gob.mx/Cancelacion/CancelaCFDService.svc.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CancelaCFDService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CancelaCFDService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CancelaCFDService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/Core/FirmasElectronicas/SAT3_2/cancelacion"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CancelaCFDService"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-MySIWEBConta, wsimport-client-InterconectaWs, wsimport-client-CancelaCFDService"/>
+</project>

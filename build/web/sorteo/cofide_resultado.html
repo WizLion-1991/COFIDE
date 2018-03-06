@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>RESULTADO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="javascript/cofide_sorteo.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/Sorteo.css" media="screen" />
+        <link href="http://192.168.2.246:9001/cofide/images/cofide.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    </head>
+    <body>
+        <div>
+
+            <div class="container" style="background-color:#F1F1F1; text-align: center;">
+                <label>OBTENER RESULTADOS</label>
+                <br>
+                <button type="button" onclick="randomSorteo()" class="okisbtn">SORTEO</button>                                              
+                <button type="button" onclick="sendAmigoSecreto()" class="okisbtn">ENVÍO SORTEO</button>                                              
+            </div>
+            <center>
+                <div style="width: 80%;">                            
+
+                    <div id="tabla_sorteo"></div>
+
+                </div>
+            </center>
+
+        </div>
+    </body>
+</html>

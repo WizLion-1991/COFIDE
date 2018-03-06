@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>INCIDENCIAS</title>
+        <link href="http://201.161.14.206:9001/cofide/images/cofide.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" href="css/Main.css" type="text/css" media="all" />
+        <script src="javascript/Main.js"></script> 
+        <script src="javascript/cofide_incidencia.js"></script> 
+        <script src="javascript/cofide_login.js"></script> 
+        <script src="javascript/cofide_usuario_inc.js"></script> 
+        <!--<script src="javascript/../Ventanas.js"></script>--> 
+        <script src="../javascript/Ventanas.js"></script> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <!--    <body>
+            <div>TODO write content</div>
+        </body>-->
+</html>
+
+<!--
+
+<head>
+    <style type="text/css">
+
+        table.PtoLealtad {font-family: roboto, sans-serif;border-collapse: collapse;width: 100%;}
+        td.PtoLealtad, th.PtoLealtad {border: 1px solid #dddddd;text-align: left;padding: 8px;}
+        tr.PtoLealtad:nth-child(even) {background-color: #dddddd;}
+        .fondonegro {background-color: #000;}
+        .boton_personalizado{
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #FFF;
+            background-color: #97c325;
+            border-radius: 6px;
+            border: 2px solid #97c325;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            font-family: Roboto;
+        }
+        .Imagen_Principal {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #79777a;
+            text-align: center;
+            padding-bottom: 37px;
+            font-size: 24px;
+            padding-top: 37px;
+            padding-right: 37px;
+            padding-left: 37px;
+        }
+        .TXTUNO {
+            background-repeat: no-repeat;
+            font-family: roboto;
+            color: #000000;
+            text-align: center;
+            padding-bottom: 5px;
+            font-size: 38px;
+            font-weight: bold;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .TXTUNOCopy {
+            background-repeat: no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #97c325;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .TXTDOS {
+            background-repeat: no-repeat;
+            font-family: Roboto;
+            color: #7A7B7A;
+            text-align: center;
+            padding-bottom: 5px;
+            font-size: 24px;
+            font-weight: normal;
+            font-style: normal;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+        .TXTCINCO {
+            background-repeat: no-repeat;
+            font-family: Roboto;
+            color: #333333;
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+            font-style: normal;
+            padding-top: 5px;
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+        .TXTTRES {
+            background-repeat: no-repeat;
+            font-family: Roboto;
+            color: #000000;
+            text-align: center;
+            padding-bottom: 0px;
+            font-size: 25px;
+            font-weight: normal;
+            font-style: normal;
+            padding-top: 2px;
+        }
+        .TXTSEIS {
+            background-repeat: no-repeat;
+            font-family: Roboto;
+            color: #333333;
+            text-align: center;
+            padding-bottom: 0px;
+            font-size: 25px;
+            font-weight: lighter;
+            font-style: normal;
+        }
+        .TXTCUATRO {
+            background-repeat: no-repeat;
+            font-family: Roboto;
+            color: #000000;
+            text-align: center;
+            padding-bottom: 0px;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            padding-top: 2px;
+        }
+        .temario {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            padding: 10px;
+            text-align: center;
+        }
+        .descuento {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #ff0009;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 24px;
+            vertical-align: top;
+        }
+        .PORCIENTO {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #3f3f3e;
+            text-align: center;
+            padding-bottom: 0px;
+            font-size: 70px;
+            font-weight: 600;
+            vertical-align: bottom;
+            padding-top: 10px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .uno strong {
+            color: #98c227;
+        }
+        .dos {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 10px;
+            background-color: #98c227;
+            font-size: 24px;
+            padding-bottom: 10px;
+        }
+        .tres {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #79777a;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 5px;
+            font-size: 10px;
+        }
+        .ocho {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #79777a;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 20px;
+            font-size: 24px;
+        }
+        .cuatro {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #FFFFFF;
+            text-align: left;
+            font-size: 12px;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 20px;
+        }
+        .cinco {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #98c227;
+            text-align: left;
+            font-size: 12px;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 20px;
+        }
+        .seis {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #98c227;
+            text-align: left;
+            font-size: 16px;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 20px;
+        }
+        .siete {
+            background-repeat: no-repeat;
+            font-family: Verdana, Geneva, sans-serif;
+            color: #918f92;
+            text-align: left;
+            font-size: 9px;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            padding-left: 20px;
+        }
+        .strng {
+            font-weight: bold;
+            font-size: 16px;
+            color: #98c227;
+        }
+        .fondonegro tr .siete p strong {
+            color: #98c227;
+        }
+        .boton {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .dos strong {
+            color: #666666;
+        }
+        .fondo {
+            background-color: #FFFFFF;
+            font-weight: normal;
+            font-family: Roboto;
+            font-size: 12px;
+        }
+        .20 {
+            font-size: 36px;
+        }
+        .fondo tr td table tr .TXTdos strong {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <table width="650" border="0" align="center" cellpadding="0" cellspacing="0" class="fondo">
+        <tr>
+            <td><table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="2"><img src="http://cofide.org/lan/wp-content/uploads/2017/10/1-banner.png" width="650" height="93"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="uno"><img src="https://gallery.mailchimp.com/53d3aaa4319e85b12d38c3156/images/55862b77-7f31-4789-8c94-b6e27b8af128.png" alt="¿Ya conoces los beneficios de tu tarjeta de lealtad?" width="650" height="263">
+                            <div>&nbsp;</div></td>
+                    </tr>
+                    <tr> </tr>
+                    <tr>
+                        <td class="TXTTRES">APRECIABLE: JULITO CH&Aacute;VEZ MONDRAG&Oacute;N</td>
+                    </tr>
+                    <tr>
+                        <td class="TXTDOS">Gracias a tu <strong style="font-size: 26px; color: #97c325">preferencia</strong> y <strong style="font-size: 26px; color: #97c325">dedicaci&oacute;n</strong>,</td>
+                    </tr>
+                    <tr> </tr>
+                    <tr> </tr>
+                    <tr>
+                        <td class="TXTDOS">tu tarjeta actualmente cuenta con <strong style="font-size: 26px; color: #97c325">1000 puntos</strong>,</td>
+                    </tr> 
+                    <tr>
+                        <td class="TXTDOS">&#161;y est&aacute;s a solo <strong style="font-size: 26px; color: #97c325">0</strong> de llevarte un curso<br></td>
+                    </tr>
+                    <tr> </tr>
+                    <td class="TXTUNO"> <strong style="text-decoration: underline; text-underline-color: #97c325">completamente gratis&#33;</strong></td>
+                    <tr> </tr>
+                    <tr>      </tr>
+                </table>
+                <div>&nbsp;</div>
+                <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr> </tr>
+                </table>
+                <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr> </tr>
+                    <tr>
+                        <td colspan="2" class="TXTTRES"><div>&nbsp;</div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="TXTSEIS">Tus puntos <strong>vencen</strong> el 25 de mayo de 2018.</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="TXTUNOCopy">&#161;Apresurate&#33;</td>
+                    </tr>
+                </table>
+                <div>&nbsp;</div>
+        <center>
+            <table>
+                <tr>
+                    <td colspan="2" class="TXTCUATRO">Consulta el plan de capacitaci&#243;n que tenemos para ti en el bot&#243;n de abajo.</td>
+                </tr>
+            </table>
+        </center>
+        <div>&nbsp;</div>
+
+        <table width="650" border="0" align="center" cellpadding="0" cellspacing="0" class="fondo">
+            <tr> </tr>
+            <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr> </tr>
+                <tr>
+                    <td colspan="2" class="tres"><a class="boton_personalizado" href="https://cofide.org/cursos-presenciales-y-en-linea/">Conoce los cursos que tenemos para ti</a></td>
+                </tr>
+            </table>
+
+            <br><br>
+
+            <div>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="padding-bottom: 10px;">
+                    <tr>
+                        <td width="20%" style="background-color: #99cc00; color:#ffffff; border: 1px solid #99cc00; padding: 10px; -webkit-border-radius: 2px; border-radius: 2px;">
+                        <td width="20%" style=" font-size:14px; background-color: #99cc00; color:#ffffff; border: 1px solid #99cc00; padding: 10px; -webkit-border-radius: 2px; border-radius: 2px;">
+                            Fecha del Curso
+                        </td>
+                        <td width="80%" style=" font-size:14px; background-color: #99cc00; color:#ffffff; border: 1px solid #99cc00; padding: 10px; -webkit-border-radius: 2px; border-radius: 2px;">
+                            Descripci&oacute;n
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #F5FAE5; border: 1px solid #99cc00; padding: 10px; -webkit-border-radius: 2px; border-radius: 2px;">
+                        <td >
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td width="20%" style="font-family: Helvetica, Tahoma, sans-serif; font-size:16px; font-weight: 100; text-transform: none; border-right: 1px solid #99cc00; padding-right: 10px; padding: 10px;">
+                                            22555
+                                        </td>                                        
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td width="80%" style="font-family: Helvetica, Tahoma, sans-serif; font-size:16px; font-weight: 100; text-transform: none; border-right: 1px solid #99cc00; padding-right: 10px; padding: 10px;">
+                                            curso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalalacurso shalala
+                                        </td>                                    
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+
+
+
+
+            <div>&nbsp;</div>
+            <table width="650" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr> </tr>
+                <tr> </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+
+            </table>
+            </td>
+            </tr>
+        </table>
+        <table width="650" border="0" align="center" cellpadding="0" cellspacing="0" class="fondonegro">
+            <tr>
+                <td class="cuatro">ALEJANDRA </td>
+                <td rowspan="4"><img src="https://gallery.mailchimp.com/53d3aaa4319e85b12d38c3156/images/59bb157a-2a07-4d95-88c5-383ca39a5e2c.jpg" width="105" height="115" usemap="#Map" border="0"></td>
+            </tr>
+            <tr>
+                <td class="cinco">alejandra.gonzalez@cofide.org</td>
+            </tr>
+            <tr>
+                <td class="seis">(01)55 4630.4646 </td>
+            </tr>
+            <tr>
+                <td class="cinco">Ext. : 1013 </td>
+            </tr>
+            <tr>
+                <td class="siete"><p class="strng">Estamos afiliados.</p>
+                    <p>Afiliaci&oacute;n del Colegio de Contadores P&uacute;blicos CDMX (CCPM-E112-1203),Puebla (CCEP-CI-0292017) y Quer&eacute;taro (CCPQ CE 08 0517)<br>
+                        Afiliaci&oacute;n de la Asociaci&oacute;n Mexicana de Contadores P&uacute;blicos, Colegio Profesional en CDMX (AMPC/CE/033)<br>
+                        Secretar&iacute;a del Trabajo y Previsi&oacute;n Social (CFD030226-9C40013)</p>
+                    <p class="strng">Datos bancarios.</p>
+                    <p>A la cuenta de HSBC 4023512213 sucursal 00055 a nombre de Corporativo F&iacute;scal D&eacute;cada, S.C.<br>
+                        Clabe o Transferencia Bancaria 021180040235122133 &oacute; bien cargo a tarjetas participantes.<br>
+                        O a la cuenta Banco Mercantil del Norte, S.A. (IXE):001224900-9.<br>
+                        Clabe bancaria:072180000122490093.<br>
+                        Adicionalmente, aceptamos cheques de cualquier banco mexicano y efectivo en pagos en nuestras oficinas.</p>
+                    <p>Solicito eliminar mi mail de su base de datos y no recibir m&aacute;s comunicados de Cofide [Eliminar de la base de datos]</p>
+                    <p><strong><a href="http://cofide.stream/web/aviso-de-privacidad/">Aviso de Privacidad</a> </strong>| <strong><a href="http://cofide.stream/web/politica-de-cancelaciones/">Pol&iacute;ticas de Cancelaci&oacute;n</a></strong>  | Todos los Derechos reservados &#169;2016</p></td>
+            </tr>
+        </table>
+
+        <map name="Map">
+            <area shape="rect" coords="10,27,106,46" href="https://www.facebook.com/cofide.sc/">
+            <area shape="rect" coords="10,48,109,68" href="https://twitter.com/cofideorg">
+            <area shape="rect" coords="11,72,112,86" href="https://www.linkedin.com/company/26999258/">
+            <area shape="rect" coords="10,92,112,109" href="https://www.youtube.com/channel/UC0SFudLNN0neJCbu6HvWPPA">
+        </map>
+</body>-->

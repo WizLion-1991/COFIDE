@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/cofide_v2">
+    <!--local-->
+    <Resource name="jdbc/SIWEBDB" auth="Container" type="javax.sql.DataSource" 
+              maxActive="100" minIdle="10" maxWait="10000"
+              username="root" password=""               
+              driverClassName="com.mysql.jdbc.Driver"
+              testOnBorrow="true"
+              validationQuery="SELECT 1"
+              url="jdbc:mysql://localhost:3306/vta_cofide?noAccessToProcedureBodies=true&amp;autoReconnect=true" 
+              testWhileIdle="true"    
+              testOnReturn="false"
+              validationInterval="30000"
+              timeBetweenEvictionRunsMillis="30000"    
+              initialSize="10"
+              removeAbandonedTimeout="60"
+              removeAbandoned="true"
+              logAbandoned="true"
+              minEvictableIdleTimeMillis="30000"
+              jmxEnabled="true"
+              jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+      org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer">
+        <property name="Pool.PingQuery" value="select 1"/>
+        <property name="Pool.PingEnabled" value="true"/>
+        <property name="Pool.PingConnectionsOlderThan" value="3600000"/>      
+        <property name="Pool.PingConnectionsNotUsedFor" value="10000"/>     
+    </Resource>
+    <!--producción-->
+    <!--    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" 
+                  initialSize="10" 
+                  jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" 
+                  jmxEnabled="true" 
+                  logAbandoned="true" 
+                  maxActive="100" maxWait="10000" 
+                  minEvictableIdleTimeMillis="30000" 
+                  minIdle="10" 
+                  name="jdbc/SIWEBDB" 
+                  password="Adm1n.01.C0f1d3" 
+                  removeAbandoned="true" 
+                  removeAbandonedTimeout="60" 
+                  testOnBorrow="true" 
+                  testOnReturn="false" 
+                  testWhileIdle="true" 
+                  timeBetweenEvictionRunsMillis="30000" 
+                  type="javax.sql.DataSource" url="jdbc:mysql://192.168.2.246:3306/vta_cofide?noAccessToProcedureBodies=true&amp;autoReconnect=true" 
+                  username="root" 
+                  validationInterval="30000" 
+                  validationQuery="SELECT 1">
+        <property name="Pool.PingQuery" value="select 1"/>
+        <property name="Pool.PingEnabled" value="true"/>
+        <property name="Pool.PingConnectionsOlderThan" value="3600000"/>
+        <property name="Pool.PingConnectionsNotUsedFor" value="10000"/>
+    </Resource>-->
+    <!--
+    -->
+    <!--conexion a la pagina web -->
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" 
+              initialSize="10" jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" 
+              jmxEnabled="true" logAbandoned="true" maxActive="100" maxWait="10000" minEvictableIdleTimeMillis="30000" minIdle="10" 
+              name="jdbc/COFIDE" password="" 
+              removeAbandoned="true" removeAbandonedTimeout="60" 
+              testOnBorrow="true" testOnReturn="false" testWhileIdle="true" 
+              timeBetweenEvictionRunsMillis="30000" type="javax.sql.DataSource" 
+              url="jdbc:mysql://localhost:3306/web2017?noAccessToProcedureBodies=true&amp;autoReconnect=true" 
+              username="root" validationInterval="30000" validationQuery="SELECT 1">
+        <property name="Pool.PingQuery" value="select 1"/>
+        <property name="Pool.PingEnabled" value="true"/>
+        <property name="Pool.PingConnectionsOlderThan" value="3600000"/>
+        <!-- 1 hr -->
+        <property name="Pool.PingConnectionsNotUsedFor" value="10000"/>
+        <!-- ping db 10 sec -->
+    </Resource>
+    <!--conexion al PBX -->
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxWait="10000" minIdle="10" name="jdbc/COFIDE_PBX" password="bXFwhNVt45GMJUng" testOnBorrow="true" type="javax.sql.DataSource" url="jdbc:mysql://192.168.2.11:3306/asteriskcdrdb?noAccessToProcedureBodies=true&amp;autoReconnect=true" username="crm_user" validationQuery="SELECT 1">
+        <!--          testWhileIdle="true"    
+                      testOnReturn="false"
+                      validationInterval="30000"
+                      timeBetweenEvictionRunsMillis="30000"    
+                      initialSize="10"
+                      removeAbandonedTimeout="60"
+                      removeAbandoned="true"
+                      logAbandoned="true"
+                      minEvictableIdleTimeMillis="30000"
+                      jmxEnabled="true"
+                      jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+              org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer">
+        -->
+        <property name="Pool.PingQuery" value="select 1"/>
+        <property name="Pool.PingEnabled" value="true"/>
+        <property name="Pool.PingConnectionsOlderThan" value="3600000"/>
+        <!-- 1 hr -->
+        <property name="Pool.PingConnectionsNotUsedFor" value="10000"/>
+        <!-- ping db 10 sec -->
+    </Resource>
+    <!--JDBC Pool -->
+</Context>

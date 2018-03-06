@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-12-18T10:50:56 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_TICKET_detalle" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" scriptletClass="com.mx.siweb.erp.reportes.jasper.NumerosEnLetra" uuid="8418968e-0b39-4051-8d47-ee0c52f52dae">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="cofide_33_pruebas"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<scriptlet name="REPORT_SCRIPTLET" class="com.mx.siweb.erp.reportes.jasper.NumerosEnLetra">
+		<scriptletDescription><![CDATA[]]></scriptletDescription>
+	</scriptlet>
+	<scriptlet name="REPORT_SCRIPTLET_SCRIPTLET" class="com.mx.siweb.erp.reportes.jasper.NumerosEnLetra"/>
+	<parameter name="TKT_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	vta_tickets.TKT_ID,
+	getFormatDate (TKT_FECHA) AS FECHA,
+	TKT_FOLIO,
+	CONCAT(
+		nombre_usuario,
+		' ',
+		apellido_paterno
+	) AS EJECUTIVO,
+	TKT_RAZONSOCIAL,
+	ROUND(TKT_TOTAL, 2) AS TKT_TOTAL,
+	getFormatDate (CC_FECHA_INICIAL) AS FECHACURSO,
+	TKTD_DESCRIPCION,
+	(select  CONCAT(CP_TITULO,' ', CP_NOMBRE, ' ', CP_APPAT,' ' ,CP_APMAT) from cofide_participantes where CP_TKT_ID = vta_tickets.TKT_ID  limit 1) as PARTICIPANTE
+FROM
+	vta_tickets,
+	vta_ticketsdeta,
+	cofide_cursos,
+	usuarios
+WHERE
+	vta_tickets.TKT_ID = vta_ticketsdeta.TKT_ID
+AND TKT_US_ALTA = id_usuarios
+AND TKTD_ID_CURSO = cofide_cursos.CC_CURSO_ID
+AND vta_tickets.TKT_ID =  $P{TKT_ID}]]>
+	</queryString>
+	<field name="TKT_ID" class="java.lang.Long"/>
+	<field name="FECHA" class="java.lang.String"/>
+	<field name="TKT_FOLIO" class="java.lang.String"/>
+	<field name="EJECUTIVO" class="java.lang.String"/>
+	<field name="TKT_RAZONSOCIAL" class="java.lang.String"/>
+	<field name="TKT_TOTAL" class="java.lang.Double"/>
+	<field name="FECHACURSO" class="java.lang.String"/>
+	<field name="TKTD_DESCRIPCION" class="java.lang.String"/>
+	<field name="PARTICIPANTE" class="java.lang.String"/>
+	<pageHeader>
+		<band height="190">
+			<rectangle radius="10">
+				<reportElement x="0" y="120" width="800" height="70" backcolor="#878787" uuid="d2954538-2579-4b2d-82f7-03dfd3a0fd43"/>
+			</rectangle>
+			<image hAlign="Left" vAlign="Top" onErrorType="Blank">
+				<reportElement positionType="FixRelativeToBottom" x="0" y="2" width="340" height="57" uuid="f52c9c5f-21d7-4d9e-a733-5f4f7296088c">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["http://201.161.14.206:9001/cofide/images/ptovta/cofideCabeceroPag.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="44" width="519" height="75" uuid="12572448-d8c4-4eb3-88b6-249f039e528a"/>
+				<box topPadding="5" leftPadding="5"/>
+				<text><![CDATA[RFC: CDF0302269C4
+AV. COYOACÁN N° 1878, INT. 1203, 1204, COL. DEL VALLE, DEL. BENITO JUÁREZ,
+CIUDAD DE MÉXICO, MÉXICO,
+C.P. 03100
+TELÉFONO: 46304646]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="580" y="0" width="220" height="20" uuid="3b348c30-3e0a-422a-acb9-31b01cd96257"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["FECHA: " + $F{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="630" y="20" width="170" height="20" forecolor="#FF0400" uuid="44be6bcb-e9e3-4b8d-86da-2b16979f1f26"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TKT_FOLIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="40" width="220" height="20" uuid="d37b91f8-d16f-49af-bb2d-82433c42df17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["EJECUTIVO: " +$F{EJECUTIVO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="140" width="160" height="20" forecolor="#FFFFFF" uuid="861f03da-a2be-465d-a8f5-f4d680aa76e2"/>
+				<box topPadding="2" leftPadding="7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZÓN SOCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="160" height="30" forecolor="#FFFFFF" uuid="abee8264-870b-48f1-9272-be0a57211500"/>
+				<box topPadding="2" leftPadding="7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL PARTICIPANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="800" height="20" forecolor="#FFFFFF" uuid="b0513fd6-acc1-460e-bf87-69d9feffe4eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL CLIENTE]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="160" y="160" width="639" height="30" uuid="b84a6ea7-3886-4e7a-958c-91b8738ced80"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="160" y="140" width="639" height="20" uuid="de383ba5-6303-45ce-9e79-9240f856e32e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="160" y="140" width="640" height="20" uuid="c526ec84-7ab7-4252-8d74-a2a155f84772"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TKT_RAZONSOCIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="160" width="640" height="30" uuid="43bcec76-56c4-4498-9add-7f8c2551ea6f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PARTICIPANTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="580" y="20" width="50" height="20" uuid="219771bd-fcbb-460b-bf77-e687832e1777"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[FOLIO:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="800" height="40" backcolor="#878787" uuid="e7589ef1-31ae-44b2-9868-dc0955c7c02d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="800" height="20" forecolor="#FFFFFF" uuid="3bf78c19-7ff6-4560-82f1-98d57882d61b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCEPTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="180" height="20" forecolor="#FFFFFF" uuid="a5867b75-5a59-4bea-a4f5-4eb720837838"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="20" width="620" height="20" forecolor="#FFFFFF" uuid="020f35e2-1b2e-4507-bde1-b1cdd81724f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="800" height="39" backcolor="#878787" uuid="29957268-91f4-4fb8-954c-46a5dc9d8cb9"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="180" height="40" uuid="b8903205-b216-4865-9184-991f09603dcf"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="180" y="0" width="620" height="40" uuid="be299a39-d5d5-422a-9314-91dabb5f7ff2"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="180" height="40" uuid="219ecc5e-90de-4fd5-882b-382f753fd0eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHACURSO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="620" height="40" uuid="938b5d6d-fa96-4c0b-8107-d0434284cb7c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TKTD_DESCRIPCION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="122">
+			<staticText>
+				<reportElement x="399" y="92" width="400" height="30" uuid="a68292b9-09a1-489c-926e-f8c0a8b35a78"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[____________________________________________
+FIRMA DE QUIEN RECIBE
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="92" width="400" height="30" uuid="11b61bb0-3997-4b34-90b9-3d89ad523418"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[____________________________________________
+FIRMA DEL CLIENTE]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="798" height="67" backcolor="#878787" uuid="cee931b6-f9bb-4d9b-a1ef-a62a67f13749"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="1" y="29" width="181" height="38" uuid="74ff07f2-de80-4dfb-821b-c4e62de0142c"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="182" y="30" width="617" height="38" uuid="9a1d3298-02b6-42d5-9573-327b8319f11e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="-1" y="0" width="181" height="30" forecolor="#FFFFFF" uuid="a6578ca0-6583-4915-a75e-d93d1052d68f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="617" height="30" forecolor="#FFFFFF" uuid="748e67c3-8e71-4fa8-b5b2-c9507ce874f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTE CON LETRA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="30" width="180" height="36" uuid="aa68dd66-ca15-4c9d-9b44-889925e83b0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TKT_TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="29" width="617" height="36" uuid="5ef71898-183a-4c8f-8921-822fab66721d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{REPORT_SCRIPTLET_SCRIPTLET}.convertirLetras("PESOS", $F{TKT_TOTAL})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

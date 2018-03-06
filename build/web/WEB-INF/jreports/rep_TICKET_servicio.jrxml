@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-12-18T10:51:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_TICKET_servicio" pageWidth="860" pageHeight="870" columnWidth="820" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b261bc5b-4158-42f6-97cb-b7d8b4b9b0e1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="cofide_33_pruebas"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="TKT_ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from vta_tickets where TKT_ID =  $P{TKT_ID}]]>
+	</queryString>
+	<field name="TKT_ID" class="java.lang.Long"/>
+	<field name="TKT_FOLIO" class="java.lang.String"/>
+	<field name="TKT_FECHA" class="java.lang.String"/>
+	<field name="TKT_HORA" class="java.lang.String"/>
+	<field name="CT_ID" class="java.lang.Long"/>
+	<field name="TKT_IMPORTE" class="java.math.BigDecimal"/>
+	<field name="TKT_IMPUESTO1" class="java.math.BigDecimal"/>
+	<field name="TKT_IMPUESTO2" class="java.math.BigDecimal"/>
+	<field name="TKT_IMPUESTO3" class="java.math.BigDecimal"/>
+	<field name="TKT_TOTAL" class="java.math.BigDecimal"/>
+	<field name="TKT_SALDO" class="java.math.BigDecimal"/>
+	<field name="SC_ID" class="java.lang.Long"/>
+	<field name="EMP_ID" class="java.lang.Long"/>
+	<field name="TKT_RAZONSOCIAL" class="java.lang.String"/>
+	<field name="TKT_RFC" class="java.lang.String"/>
+	<field name="TKT_CALLE" class="java.lang.String"/>
+	<field name="TKT_COLONIA" class="java.lang.String"/>
+	<field name="TKT_LOCALIDAD" class="java.lang.String"/>
+	<field name="TKT_MUNICIPIO" class="java.lang.String"/>
+	<field name="TKT_ESTADO" class="java.lang.String"/>
+	<field name="TKT_CP" class="java.lang.String"/>
+	<field name="TKT_TASA1" class="java.math.BigDecimal"/>
+	<field name="TKT_TASA2" class="java.math.BigDecimal"/>
+	<field name="TKT_TASA3" class="java.math.BigDecimal"/>
+	<field name="TKT_O_REM" class="java.lang.Integer"/>
+	<field name="TKT_GANANCIA" class="java.math.BigDecimal"/>
+	<field name="ES_ID" class="java.lang.Long"/>
+	<field name="TKT_ANULADA" class="java.lang.Integer"/>
+	<field name="TKT_FECHAANUL" class="java.lang.String"/>
+	<field name="TKT_DIASCREDITO" class="java.lang.Integer"/>
+	<field name="TKT_NOTAS" class="java.lang.String"/>
+	<field name="TKT_LPRECIOS" class="java.lang.Integer"/>
+	<field name="TKT_IDNC" class="java.lang.Long"/>
+	<field name="TKT_ES_SURTIDO" class="java.lang.Integer"/>
+	<field name="TKT_US_ALTA" class="java.lang.String"/>
+	<field name="TKT_US_ANUL" class="java.lang.Long"/>
+	<field name="TKT_MONEDA" class="java.lang.Long"/>
+	<field name="TKT_TASAPESO" class="java.math.BigDecimal"/>
+	<field name="VE_ID" class="java.lang.Long"/>
+	<field name="TKT_FECHACREATE" class="java.lang.String"/>
+	<field name="TKT_ESSERV" class="java.lang.Integer"/>
+	<field name="TKT_HORANUL" class="java.lang.String"/>
+	<field name="TKT_US_MOD" class="java.lang.Long"/>
+	<field name="TKT_COSTO" class="java.math.BigDecimal"/>
+	<field name="FAC_ID" class="java.lang.Long"/>
+	<field name="TKT_DESCUENTO" class="java.math.BigDecimal"/>
+	<field name="CCJ_ID" class="java.lang.Long"/>
+	<field name="TKT_NUMERO" class="java.lang.String"/>
+	<field name="TKT_NUMINT" class="java.lang.String"/>
+	<field name="PD_ID" class="java.lang.Long"/>
+	<field name="TKT_NOTASPIE" class="java.lang.String"/>
+	<field name="TKT_REFERENCIA" class="java.lang.String"/>
+	<field name="TKT_CONDPAGO" class="java.lang.String"/>
+	<field name="TKT_EXEC_INTER_CP" class="java.lang.Integer"/>
+	<field name="TKT_ESRECU" class="java.lang.Integer"/>
+	<field name="TKT_PERIODICIDAD" class="java.lang.Integer"/>
+	<field name="TKT_DIAPER" class="java.lang.Integer"/>
+	<field name="TKT_NUMPEDI" class="java.lang.String"/>
+	<field name="TKT_FECHAPEDI" class="java.lang.String"/>
+	<field name="TKT_ADUANA" class="java.lang.String"/>
+	<field name="TI_ID" class="java.lang.Long"/>
+	<field name="TI_ID2" class="java.lang.Long"/>
+	<field name="TI_ID3" class="java.lang.Long"/>
+	<field name="TKT_EXEC_INTER_CP_ANUL" class="java.lang.Long"/>
+	<field name="TKT_TIPOCOMP" class="java.lang.Integer"/>
+	<field name="TKT_USO_IEPS" class="java.lang.Integer"/>
+	<field name="TKT_TASA_IEPS" class="java.lang.Integer"/>
+	<field name="TKT_IMPORTE_IEPS" class="java.math.BigDecimal"/>
+	<field name="TKT_SELLOTIMBRE" class="java.lang.String"/>
+	<field name="TKT_HORA_TIMBRE" class="java.lang.String"/>
+	<field name="TKT_SELLOTIMBRE_ANUL" class="java.lang.String"/>
+	<field name="TKT_HORA_TIMBRE_ANUL" class="java.lang.String"/>
+	<field name="TKT_FOLIO_ANUL" class="java.lang.String"/>
+	<field name="TKT_CADENA_TIMBRE" class="java.lang.String"/>
+	<field name="TKT_NUMCUENTA" class="java.lang.String"/>
+	<field name="TKT_FORMADEPAGO" class="java.lang.String"/>
+	<field name="TKT_METODODEPAGO" class="java.lang.String"/>
+	<field name="TKT_REGIMENFISCAL" class="java.lang.String"/>
+	<field name="TKT_NUM_GUIA" class="java.lang.String"/>
+	<field name="TKT_TIPO_FLETE" class="java.lang.Integer"/>
+	<field name="TKT_IMPORTE_FLETE" class="java.math.BigDecimal"/>
+	<field name="TKT_ES_POR_PEDIDOS" class="java.lang.Integer"/>
+	<field name="TKT_IMPORTE_PUNTOS" class="java.math.BigDecimal"/>
+	<field name="TKT_IMPORTE_NEGOCIO" class="java.math.BigDecimal"/>
+	<field name="TKT_NO_MLM" class="java.lang.Integer"/>
+	<field name="MPE_ID" class="java.lang.Integer"/>
+	<field name="TKT_CONSIGNACION" class="java.lang.Integer"/>
+	<field name="CDE_ID" class="java.lang.Integer"/>
+	<field name="DFA_ID" class="java.lang.Integer"/>
+	<field name="TKT_RECU_FINAL" class="java.lang.String"/>
+	<field name="TKT_NO_EVENTOS" class="java.lang.Integer"/>
+	<field name="TKT_ESARRENDA" class="java.lang.Integer"/>
+	<field name="TKT_NETO" class="java.math.BigDecimal"/>
+	<field name="TKT_NOMFORMATO" class="java.lang.String"/>
+	<field name="TKT_RETISR" class="java.math.BigDecimal"/>
+	<field name="TKT_RETIVA" class="java.math.BigDecimal"/>
+	<field name="TR_ID" class="java.lang.Integer"/>
+	<field name="ME_ID" class="java.lang.Integer"/>
+	<field name="TF_ID" class="java.lang.Integer"/>
+	<field name="TKT_POR_DESCUENTO" class="java.math.BigDecimal"/>
+	<field name="TKT_FECHA_COBRO" class="java.lang.String"/>
+	<field name="PD_RECU_ID" class="java.lang.Integer"/>
+	<field name="TKT_TURNO" class="java.lang.Integer"/>
+	<field name="TKT_FOLIO_C" class="java.lang.String"/>
+	<field name="COT_ID" class="java.lang.Integer"/>
+	<field name="TKTE_ID" class="java.lang.Integer"/>
+	<field name="KL_ES_KIT1" class="java.lang.Integer"/>
+	<field name="KL_ES_KIT2" class="java.lang.Integer"/>
+	<field name="KL_CICLO" class="java.lang.Integer"/>
+	<field name="CC1_ID" class="java.lang.Integer"/>
+	<field name="TKT_SERIE" class="java.lang.String"/>
+	<field name="CAMP_ID" class="java.lang.Integer"/>
+	<field name="TKT_COFIDE_PAGADO" class="java.lang.Integer"/>
+	<field name="CC_CURSO_ID" class="java.lang.Integer"/>
+	<field name="COFIDE_NVO" class="java.lang.Integer"/>
+	<field name="TKT_TIPO_CURSO" class="java.lang.Integer"/>
+	<field name="COFIDE_DUPLICIDAD" class="java.lang.Integer"/>
+	<field name="COFIDE_DUPLICIDAD_ID" class="java.lang.Integer"/>
+	<field name="TKT_COFIDE_APROBADO" class="java.lang.Integer"/>
+	<field name="TKT_IMP_PAGADO" class="java.math.BigDecimal"/>
+	<field name="TKT_ES_RESERVACION" class="java.lang.Integer"/>
+	<field name="APC_ID" class="java.lang.Integer"/>
+	<field name="TKT_INBOUND" class="java.lang.Integer"/>
+	<field name="MP_ID" class="java.lang.Integer"/>
+	<field name="TKT_COFIDE_VALIDA" class="java.lang.Integer"/>
+	<field name="TKT_NOMPAGO" class="java.lang.String"/>
+	<field name="COFIDE_CARRITO" class="java.lang.Integer"/>
+	<field name="TKT_MOTIVO_DENEGADA" class="java.lang.String"/>
+	<field name="TKT_CANCEL" class="java.lang.Integer"/>
+	<field name="TKT_PROMO" class="java.lang.Integer"/>
+	<field name="TKT_ID_MOV" class="java.lang.Integer"/>
+	<field name="TKT_FACTURAR" class="java.lang.Integer"/>
+	<field name="TKT_USO_CFDI" class="java.lang.String"/>
+	<field name="TKT_MONTO_SEGURO" class="java.math.BigDecimal"/>
+	<field name="TKT_TASACAMBIO" class="java.math.BigDecimal"/>
+	<field name="TKT_TIENE_FLETE" class="java.lang.Integer"/>
+	<field name="TKT_TIENE_SEGURO" class="java.lang.Integer"/>
+	<field name="TKT_INE" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="361" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="819" height="361" uuid="d753651f-1e63-49d4-bbed-2015ea12d52d"/>
+				<subreportParameter name="TKT_ID">
+					<subreportParameterExpression><![CDATA[$P{TKT_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/opt/tomcat/webapps/cofide_test/WEB-INF/jreports/rep_TICKET_detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="410">
+			<line>
+				<reportElement x="0" y="2" width="819" height="1" uuid="54fbd707-bd5b-4d0a-8f0d-0a82c59d2e97"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="0" y="10" width="820" height="400" isPrintInFirstWholeBand="true" uuid="9c20866f-f025-4a28-ba8a-ae71ffd55888"/>
+				<subreportParameter name="TKT_ID">
+					<subreportParameterExpression><![CDATA[$P{TKT_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["/opt/tomcat/webapps/cofide_test/WEB-INF/jreports/rep_TICKET_detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,252 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/02/2018, 05:29:21 PM
+    Author     : Desarrollo_COFIDE
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /*background-image: url(http://201.161.14.206:9001/cofide/images/back_sepomex.jpg);*/
+    background: url(http://201.161.14.206:9001/cofide/images/back_sepomex.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    /*opacity: 0.8;*/
+    opacity: 0.5;
+    background-color: darkorange;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 30%;
+    border-radius: 5%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+.modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 40px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-image: url(http://201.161.14.206:9001/cofide/images/back_sepomex.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background-color: #fefefe;*/
+    margin: -1% auto auto auto; /* 5% from the top, 15% from the bottom and centered */
+    /*margin: 5% auto 15% auto;  5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+.modal-content2 {
+    background-image: url(http://201.161.14.206:9001/cofide/images/back_sepomex.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background-color: #fefefe;*/
+    margin: -1% auto auto auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+#fondo{
+    text-align: center;
+    padding-top: 2%
+}
+
+#logocofide{
+    width: 20%;    
+}
+
+hr.style13 {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #99cc00 inset;
+}
+
+#contenedor_header{
+    padding-left: 1%;
+}
+
+#contenedor_{
+    /*    height: 590px;*/
+    height: 680px;
+    width: 100%;
+    padding-left: 2%;
+}
+#contenedor_menu{
+    /*display: inline-block;*/
+    border: 1px #99cc00 solid; /*BORRAR*/
+    width: 20%;
+    height: 100%;
+    background-color: gainsboro;    
+}
+
+#contenedor_contenido{
+    /*display: inline-block;*/
+    border: 1px #99cc00 solid; /*BORRAR*/
+    width: 79%;
+    height: 100%;
+    background-image: url(http://201.161.14.206:9001/cofide/images/back_incidencia.png);
+}
+#contenido_pantalla{
+    overflow: auto;
+    height: 670px;   
+}
+
+#variables_sesion{
+    display: none;
+}
+
+.button_menu {
+    background-color: #4CAF50;
+    color: white;
+    padding: -1% 0% 23%;
+    margin: 5% 0%;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#imagen_tmp{
+    width: 27%;
+    padding: 20% 2%;
+}
+
+#contenedor_incidencia{
+    padding-left: 1%;
+    padding-top:  1%;
+    padding-right: 1%;
+}
+
+.contenido_thead th{
+    font-size: 14px;
+    color: white;
+    background-color: #99CC00;
+    border: 2px solid white;
+}
+
+.contenido_tbody td{
+    font-size: 12px;
+    border: 2px solid white;
+}

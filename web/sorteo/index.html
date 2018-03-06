@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SORTEO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="javascript/cofide_sorteo.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/Sorteo.css" media="screen" />
+        <link href="http://192.168.2.246:9001/cofide/images/cofide.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <script type='text/javascript'>
+            var fallObjects = new Array();
+            function newObject(url, height, width) {
+                fallObjects[fallObjects.length] = new Array(url, height, width);
+            }
+
+            var numObjs = 20, waft = 50, fallSpeed = 10, wind = 0;
+            newObject("images/copo.png", 22, 22);
+            newObject("http://3.bp.blogspot.com/-DPHwVIctTlg/UM-di9jKOiI/AAAAAAAABq8/wV567ynxL2U/s400/nieve1_jessi_diyva.png", 22, 22);
+
+            function winSize() {
+                winWidth = (moz) ? window.innerWidth - 180 : document.body.clientWidth - 180;
+                winHeight = (moz) ? window.innerHeight + 500 : document.body.clientHeight + 500;
+            }
+            function winOfy() {
+                winOffset = (moz) ? window.pageYOffset : document.body.scrollTop;
+            }
+            function fallObject(num, vari, nu) {
+                objects[num] = new Array(parseInt(Math.random() * (winWidth - waft)), -30, (parseInt(Math.random() * waft)) * ((Math.random() > 0.5) ? 1 : -1), 0.02 + Math.random() / 20, 0, 1 + parseInt(Math.random() * fallSpeed), vari, fallObjects[vari][1], fallObjects[vari][2]);
+                if (nu == 1) {
+                    document.write('<img id="fO' + i + '" style="position:fixed;" src="' + fallObjects[vari][0] + '">');
+                }
+            }
+            function fall() {
+                for (i = 0; i < numObjs; i++) {
+                    var fallingObject = document.getElementById('fO' + i);
+                    if ((objects[i][1] > (winHeight - (objects[i][5] + objects[i][7]))) || (objects[i][0] > (winWidth - (objects[i][2] + objects[i][8])))) {
+                        fallObject(i, objects[i][6], 0);
+                    }
+                    objects[i][0] += wind;
+                    objects[i][1] += objects[i][5];
+                    objects[i][4] += objects[i][3];
+                    with (fallingObject.style) {
+                        top = objects[i][1] + winOffset + 'px';
+                        left = objects[i][0] + (objects[i][2] * Math.cos(objects[i][4])) + 'px';
+                    }
+                }
+                setTimeout("fall()", 31);
+            }
+            var objects = new Array(), winOffset = 0, winHeight, winWidth, togvis, moz = (document.getElementById && !document.all) ? 1 : 0;
+            winSize();
+            for (i = 0; i < numObjs; i++) {
+                fallObject(i, parseInt(Math.random() * fallObjects.length), 1);
+            }
+            fall();
+        </script>
+    </head>
+
+    <body   background="images/gg.jpg" id="letritas" >
+        <br>
+        <img src="images/logo.png" width="229" height="84">
+        <div style="text-align: center; padding-top: 10%">
+
+
+
+            <h3> Te invitamos a participar en el Intercambio de Regalos 2017</h3>
+
+            <hr>
+
+            <h4><ul><li>Fecha: 15 de diciembre.</li>
+                    <li>Presupuesto: $250.00</li>
+                    <li>Amigo secreto (Por sorteo)</li></ul></h4>
+            <hr>
+            <h4>Dinámica:
+
+                Durante la semana del 11 al 14 de diciembre deberás entregar diario un detalle a tu amigo secreto.<br>
+                Da clic en INGRESAR para participar en el intercambio, deja tus datos y opciones de regalo.</h4>
+
+
+
+
+            <button onclick="OpnModal()" style="width:auto;">INGRESAR</button>
+
+            <div id="id01" class="modal">
+
+                <form class="modal-content animate">
+                    <div class="imgcontainer">
+                        <span onclick="cleanFields()" class="close" title="CERRAR VENTANA">&times;</span>
+                        <img src="http://201.161.14.206:9001/cofide/images/cofide_newlogo_a_MR.png" alt="COFIDE" class="avatar">
+                    </div>
+
+                    <div class="container">
+
+                        <!--datos del perdonal-->
+                        <label class="texto_paddin">Nombre</label>
+                        <input  type="text" id="nombre" class="form-control" placeholder="Escribe tu nombre" title="Es muy importante">
+
+                        <label class="texto_paddin">Correo</label>
+                        <input type="text" id="correo" class="form-control" placeholder="Escribe tu CORREO" title="Es muy importante">
+                        <!--datos del perdonal-->
+
+                        <!--informacion de su deseo-->
+                        <label class="texto_paddin">Opción 1</label>                
+                        <textarea class="form-control" rows="3" id="uno" placeholder="Opción de regalo 1"></textarea>
+
+                        <label class="texto_paddin">Opción 2</label>                
+                        <textarea class="form-control" rows="3" id="dos" placeholder="Opción de regalo 2"></textarea>
+
+                        <label class="texto_paddin">Opción 3</label>
+                        <textarea class="form-control" rows="3" id="tres" placeholder="Opción de regalo 3"></textarea>            
+                        <!--informacion de su deseo-->
+
+                        <!--enviar información-->
+                        <button type="button" onclick="validateData()">GUARDAR</button>
+                        <!--enviar información-->
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1; text-align: center;">
+                        <button type="button" onclick="cleanFields()" class="cancelbtn">SALIR</button>                                              
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!--            <script>
+                            // Get the modal
+                            var modal = document.getElementById('id01');
+            
+                            // When the user clicks anywhere outside of the modal, close it
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        </script>-->
+        </div>
+    </body>
+</html>

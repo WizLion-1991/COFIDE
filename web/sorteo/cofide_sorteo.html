@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SORTEO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="javascript/cofide_sorteo.js"></script> 
+        <script src="jqGrid/ajaxfileupload.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/Sorteo.css" media="screen" />
+    </head>
+    <body >
+
+    <center>
+
+        <div class="container contenedor">
+            <label >Ingresa tu informaicón</label>
+            <br>
+            <div id="opciones1">
+                <div>
+                    <label class="texto_paddin">Nombre</label>
+                    <input  type="text" id="nombre" class="form-control" placeholder="Escribe tu nombre" title="Es muy importante">
+                </div>
+
+                <div>
+                    <label class="texto_paddin">Correo</label>
+                    <input type="text" id="correo" class="form-control" placeholder="Escribe tu CORREO" title="Es muy importante">
+                </div>
+            </div>
+            <hr>
+
+            <label >Opciones de regalo</label>
+            <div id="scroll">
+                <div id="opciones">
+                    <label class="texto_paddin">Opción 1</label>                
+                    <textarea class="form-control" rows="3" id="uno" placeholder="Opción de regalo 1"></textarea>
+                    <br>
+                    <!--                    <label class="texto_paddin">Elige una foto de tu deseo</label>
+                                        <input type="file" id="file1">
+                                        <input type="text" id="unofile" title="selecciona una foto de tu deseo">-->
+                </div>
+                <br>
+
+                <div id="opciones">
+                    <label class="texto_paddin">Opción 2</label>                
+                    <textarea class="form-control" rows="3" id="dos" placeholder="Opción de regalo 2"></textarea>
+                    <br>
+                    <!--                    <label class="texto_paddin">Elige una foto de tu deseo</label>
+                                        <input type="file" id="file2" title="selecciona una foto de tu deseo">
+                                        <input type="text" id="dosfile">-->
+                </div>
+                <br>
+
+                <div id="opciones">
+                    <label class="texto_paddin">Opción 3</label>
+                    <textarea class="form-control" rows="3" id="tres" placeholder="Opción de regalo 3"></textarea>
+                    <br>
+                    <!--                    <label class="texto_paddin">Elige una foto de tu deseo</label>
+                                        <input type="file" id="file3" title="selecciona una foto de tu deseo">
+                                        <input type="text" id="tresfile">-->
+                </div>
+                <br>
+            </div>
+            <br>
+            <div id="opciones">
+                <input type="button" value="Enviar Datos" class="btn btn-warning btn-block" title="Envía tus deseos" onclick="validateData()"/>
+            </div>
+        </div>
+
+        <br>
+    </center>
+
+
+</body>
+
+</html>

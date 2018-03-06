@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SEPOMEX MX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/sepomex.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/sepomex.css" media="screen" />
+        <link href="http://192.168.2.246:9001/cofide/images/cofide.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    </head>
+    <body onload="init()">
+        <header>
+            <div id="cabeza">
+                <center>
+                    <img src="http://201.161.14.206:9001/cofide/images/logo_MR_Comp_Ver.png"/>
+                </center>
+            </div>
+        </header>
+        <div>
+            <center>
+                <div id="formulario">
+                    <div id="cpnew">
+                        <label>CODIGO POSTAL</label>
+                        <div>
+                            <input type="button" id="valida" class="btn btn-success btn-block " value="NUEVA COLONIA" onclick="validaCp()">
+                            <input type="button" id="nuevo" class="btn btn-success btn-block" value="NUEVO C.P." onclick="showNew()">
+                        </div>
+                        <div>
+                            <input type="text" onkeypress="return validaNumero(event)" id="cp" class="form-control" placeholder="03100" maxlength="5">
+                            <input type="button" id="send" class="btn btn-success btn-block" value="BUSCAR" onclick="enviarCp()"> 
+                        </div>
+                    </div>
+                    <div id="cpsave">
+                        <input type="text" onkeypress="keySend(event)" id="col" class="form-control" placeholder="COLONIA">     
+                        <input type="button" id="guarda" class="btn btn-success btn-block" value="GUARDAR COLONIA" onclick="Save()">
+                        <input type="button" id="cancelar" class="btn btn-success btn-block" value="CANCELAR" onclick="init()">
+                    </div>
+                    <div id="cpnuevo">
+                        <input type="text" onkeypress="return validaNumero(event)" id="cpn" class="form-control" placeholder="03100" maxlength="5">
+                        <input type="text" id="colnew" class="form-control" placeholder="COLONIA">     
+                        <input type="text" id="munnew" class="form-control" placeholder="MUNICIPIO">     
+                        <input type="text" id="edonew" class="form-control" placeholder="ESTADO">     
+                        <input type="button" id="guardanew" class="btn btn-success btn-block" value="GUARDAR C.P." onclick="SaveNew()">
+                        <input type="button" id="cancelnew" class="btn btn-success btn-block" value="CANCELAR" onclick="init()">
+                    </div>
+                </div>
+            </center>
+            <center>
+                <div style="overflow: scroll; width: 100%; height: 550px;">
+                    <div id="tabla"></div>
+                </div>
+            </center>
+        </div>
+        <footer>
+            <center>
+                <div>
+                    Sepomex-COFIDE v2.0/2018
+                </div>
+            </center>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-02-26T13:20:00 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repo_cfd_incidencia" pageWidth="1100" pageHeight="842" columnWidth="1060" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23bf3d3f-070c-45c1-8896-5262509c8828">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cofide_Produccion"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="268"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="732"/>
+	<parameter name="fecini" class="java.lang.String"/>
+	<parameter name="fecfin" class="java.lang.String"/>
+	<parameter name="usuario" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	*,
+(select COUNT(I2.CCI_ESTATUS) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ESTATUS = 1) as COMPLETO,
+(select COUNT(I2.CCI_ESTATUS) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ESTATUS = 2) as PENDIENTE,
+(select COUNT(I2.CCI_ESTATUS) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ESTATUS = 3) as SIN_ATENDER,
+(select COUNT(I2.CCI_ORIGEN_PROBLEMA) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ORIGEN_PROBLEMA = 'SISTEMA') as SISTEMA,
+(select COUNT(I2.CCI_ORIGEN_PROBLEMA) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ORIGEN_PROBLEMA = 'CLIENTE INT.') as US_INT,
+(select COUNT(I2.CCI_ORIGEN_PROBLEMA) from cfd_incidencia_incidencia I2 where I2.CCI_FECHA_ALTA BETWEEN $P{fecini}AND $P{fecfin} and I2.CCI_US_ALTA = I.CCI_US_ALTA and I2.CCI_ORIGEN_PROBLEMA = 'CLIENTE EXT.') as US_EXT
+FROM
+	cfd_incidencia_incidencia I,
+	cfd_incidencia_usuario U
+WHERE
+	I.CCI_US_ALTA = U.INC_US_ID
+AND I.CCI_FECHA_ALTA BETWEEN  $P{fecini} 
+AND  $P{fecfin}  and I.CCI_US_ALTA =  $P{usuario} 
+ORDER BY
+	I.CCI_FECHA_ALTA,
+	I.CCI_HORA_ALTA;
+]]>
+	</queryString>
+	<field name="CII_ID" class="java.lang.Integer"/>
+	<field name="CCI_FECHA_ALTA" class="java.lang.String"/>
+	<field name="CCI_HORA_ALTA" class="java.lang.String"/>
+	<field name="CCI_CLIENTE" class="java.lang.String"/>
+	<field name="CCI_CORREO" class="java.lang.String"/>
+	<field name="CCI_CURSO_ID" class="java.lang.Integer"/>
+	<field name="CCI_TIPO_PROBLEMA" class="java.lang.Integer"/>
+	<field name="CCI_MODULO_CRM" class="java.lang.String"/>
+	<field name="CCI_ORIGEN_PROBLEMA" class="java.lang.String"/>
+	<field name="CCI_ESTATUS" class="java.lang.Integer"/>
+	<field name="CCI_COMENTARIO" class="java.lang.String"/>
+	<field name="CCI_OBSERVACION" class="java.lang.String"/>
+	<field name="CCI_FECHA_TERMINO" class="java.lang.String"/>
+	<field name="CCI_HORA_TERMINO" class="java.lang.String"/>
+	<field name="CCI_TOTAL_TIEMPO" class="java.lang.String"/>
+	<field name="CCI_US_ALTA" class="java.lang.Integer"/>
+	<field name="INC_US_ID" class="java.lang.Integer"/>
+	<field name="INC_US_NOMBRE" class="java.lang.String"/>
+	<field name="INC_US_USUARIO" class="java.lang.String"/>
+	<field name="INC_US_PASSWORD" class="java.lang.String"/>
+	<field name="INC_US_ESTATUS" class="java.lang.Integer"/>
+	<field name="INC_US_PERFIL" class="java.lang.Integer"/>
+	<field name="COMPLETO" class="java.lang.Integer"/>
+	<field name="PENDIENTE" class="java.lang.Integer"/>
+	<field name="SIN_ATENDER" class="java.lang.Integer"/>
+	<field name="SISTEMA" class="java.lang.Integer"/>
+	<field name="US_INT" class="java.lang.Integer"/>
+	<field name="US_EXT" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="3423dd8d-453c-4f5a-9a67-f89e70df3761">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA ALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="50" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="44d84541-8c51-46a1-9a92-972146ffbb7e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA ALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="100" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="3020ab4b-54c7-461b-992d-2ed70ecb5410">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CCI_CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="a7a34268-26e3-4cad-84e6-ecc723e73d84">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO DE PROBLEMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="250" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="6d045d5d-6884-4955-a684-22e36a5b4864">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORIGEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="300" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="b4b81109-32ae-4034-8aa5-6f01382d1264">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CCI_ESTATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="210" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="0ebbc0fb-9596-410a-8ed6-becaf9fcd7cb">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMENTARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="560" y="0" width="210" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="48cb9375-38e8-4396-b4aa-dbf8d4a94517"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERVACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="770" y="0" width="80" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="cea021ec-9f9b-4ec7-b8a2-8c147eb7212f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CCI_FECHA_TERMINO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="850" y="0" width="50" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="c7e46b60-b2a6-4756-95ee-ad3fd5668827">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORA TERMINO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="900" y="0" width="80" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="81028939-1f41-4415-81c3-24ca37f36abc">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIEMPO DE RESPUESTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="980" y="0" width="78" height="30" forecolor="#FFFFFF" backcolor="#99CC00" uuid="f17c33e0-77a9-463b-a281-da99a576be65"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="30" uuid="c73ac92b-eb9d-4c31-826d-3a5540047034"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_FECHA_ALTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="50" height="30" uuid="7c25f52b-1299-4151-84f1-1c7a4c2855f1"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_HORA_ALTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="b896df3f-c422-42d9-9046-ddbf3854cc0a"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_CLIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="50" height="30" uuid="002349d7-9273-4242-a566-8c37f6580949"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_TIPO_PROBLEMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="50" height="30" uuid="b2930404-1fcc-40fb-bf7d-7f06240e902d"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_ORIGEN_PROBLEMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="50" height="30" uuid="daa0b087-6cef-486c-837e-d10a369dd241"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_ESTATUS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="210" height="30" uuid="b92b1e53-c55d-458a-82f7-88be8b2bae4e"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_COMENTARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="0" width="210" height="30" uuid="dc5ca793-b6f4-4f25-aa02-d0d8c37a2d32"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_OBSERVACION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="770" y="0" width="80" height="30" uuid="5e5621af-6935-46dd-9ba7-e48894c4287d"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_FECHA_TERMINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="850" y="0" width="50" height="30" uuid="5f69a12b-eaf1-4504-98c6-e30ebd3d3e54"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_HORA_TERMINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="900" y="0" width="80" height="30" uuid="4aea4ccf-8340-4a1c-9e04-b47b6ff55eb3"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CCI_TOTAL_TIEMPO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="980" y="0" width="78" height="30" uuid="8208c8a4-d6e4-4339-bd8e-6af131d666f3"/>
+				<box leftPadding="4">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INC_US_NOMBRE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="391" splitType="Stretch">
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="520" height="391" uuid="a9b267de-d765-48c1-9f6d-9080707e67f0">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<chartTitle>
+						<titleExpression><![CDATA["INCIDENCIAS"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["COMPLETO"]]></seriesExpression>
+						<categoryExpression><![CDATA["ESTATUS: COMPLETO"]]></categoryExpression>
+						<valueExpression><![CDATA[$F{COMPLETO}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["SIN ATENDER"]]></seriesExpression>
+						<categoryExpression><![CDATA["ESTATUS: S/ATENDER"]]></categoryExpression>
+						<valueExpression><![CDATA[$F{SIN_ATENDER}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["PENDIENTE"]]></seriesExpression>
+						<categoryExpression><![CDATA["ESTATUS: PENDIENTE" ]]></categoryExpression>
+						<valueExpression><![CDATA[$F{PENDIENTE}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="520" y="0" width="520" height="391" uuid="91418587-6cbb-4b1d-a99d-9c753e85b873">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<chartTitle>
+						<titleExpression><![CDATA["ORIGEN DE INCIDENCIAS"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["USUARIO EXTERNO"]]></seriesExpression>
+						<categoryExpression><![CDATA["ORIGEN EXT: " + $F{US_EXT}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{US_EXT}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["USUARIO INTERNO"]]></seriesExpression>
+						<categoryExpression><![CDATA["ORIGEN INT: " + $F{US_INT}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{US_INT}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["SISTEMAS"]]></seriesExpression>
+						<categoryExpression><![CDATA["ORIGEN SISTEMAS: " + $F{SISTEMA}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{SISTEMA}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

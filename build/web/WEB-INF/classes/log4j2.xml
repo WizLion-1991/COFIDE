@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="comSIWeb.Operaciones.Conexion" level="DEBUG"/>        
+        <logger name="Core.FirmasElectronicas.SATXml3_0" level="DEBUG"/>
+        <logger name="Core.FirmasElectronicas.SatCancelaCFDI" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.restful.SugerenciasResource" level="DEBUG"/>
+ 
+        <logger name="ERP.ProcesoMaster" level="DEBUG"/>
+        <logger name="ERP.Ticket" level="DEBUG"/>
+        <logger name="ERP.FacturaMasivaPedidos" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.especiales.siweb.FacturacionMasiva" level="DEBUG"/>
+        <logger name="comSIWeb.Operaciones.CIP_Tabla" level="DEBUG"/>
+        <logger name="Core.FirmasElectronicas.SATRetenciones" level="DEBUG"/>
+        <logger name="Core.FirmasElectronicas.TimbradoFacturaSegundos" level="DEBUG"/>
+        <logger name="comSIWeb.Operaciones.Formatos.Formateador" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.especiales.cofide.COFIDE_Mail_cursos" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.especiales.cofide.restful.LlamadaResource" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.especiales.cofide.Cofide_PBX" level="DEBUG"/>
+        <logger name="com.mx.siweb.erp.especiales.cofide.restful.PedidosResource" level="DEBUG"/>
+      
+        <root level="error">
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>

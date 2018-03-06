@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/12/2017, 12:09:39 PM
+    Author     : Desarrollo_COFIDE
+*/
+
+#formulario{
+    padding-top: 1%;    
+    width: 30%;
+    height: 30%;
+}
+#cpnew{
+    text-align: center;
+    width: 40%;
+}
+#cpsave{
+    text-align: center;
+}
+#tabla{
+    width: 60%;    
+    /*color: #fff;*/
+}
+
+body{
+    background-image: url(http://201.161.14.206:9001/cofide/images/back_sepomex.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#cabeza{
+    height:100px;
+    width: 100%;
+    background-color: black;                    
+    /*background: linear-gradient( #000,#000,#000, #99cc00);  Standard syntax (must be last) */
+    background: #2E2E2E; /* Standard syntax (must be last) */
+}
+
+img{
+    padding-top: 10px;
+    width: 10%;
+}
+

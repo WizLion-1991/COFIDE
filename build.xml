@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="ERPWEB_Ventas" default="default" basedir=".">
+   <description>Builds, tests, and runs the project ERPWEB_Ventas.</description>
+   <import file="nbproject/build-impl.xml"/>
+   <!--
+
+    There exist several targets which are by default empty and which can be
+    used for execution of your tasks. These targets are usually executed
+    before and after some main targets. They are:
+
+      -pre-init:                 called before initialization of project properties
+      -post-init:                called after initialization of project properties
+      -pre-compile:              called before javac compilation
+      -post-compile:             called after javac compilation
+      -pre-compile-single:       called before javac compilation of single file
+      -post-compile-single:      called after javac compilation of single file
+      -pre-compile-test:         called before javac compilation of JUnit tests
+      -post-compile-test:        called after javac compilation of JUnit tests
+      -pre-compile-test-single:  called before javac compilation of single JUnit test
+      -post-compile-test-single: called after javac compilation of single JUunit test
+      -pre-dist:                 called before archive building
+      -post-dist:                called after archive building
+      -post-clean:               called after cleaning build products
+      -pre-run-deploy:           called before deploying
+      -post-run-deploy:          called after deploying
+
+    Example of pluging an obfuscator after the compilation could look like
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    For list of available properties check the imported
+    nbproject/build-impl.xml file.
+
+
+    Other way how to customize the build is by overriding existing main targets.
+    The target of interest are:
+
+      init-macrodef-javac:    defines macro for javac compilation
+      init-macrodef-junit:   defines macro for junit execution
+      init-macrodef-debug:    defines macro for class debugging
+      do-dist:                archive building
+      run:                    execution of project
+      javadoc-build:          javadoc generation
+
+    Example of overriding the target for project execution could look like
+
+        <target name="run" depends="<PROJNAME>-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Notice that overridden target depends on jar target and not only on
+    compile target as regular run target does. Again, for list of available
+    properties which you can use check the target you are overriding in
+    nbproject/build-impl.xml file.
+
+   -->
+   <target name="-pre-dist">
+      <!-- <echo level="info" message="Compressing JavaScript and CSS files...." />
+      <path id="yuicompressor.classpath">
+         <fileset dir="${basedir}/lib/">
+            <include name="YUIAnt.jar"/>
+            <include name="yui-compressor-ant-task-0.5.jar"/>
+            <include name="yuicompressor-2.4.8.jar"/>
+         </fileset>
+      </path>
+      <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+         <classpath>
+            <path refid="yuicompressor.classpath"/>
+         </classpath>
+      </taskdef>
+      <yuicompress linebreak="8000" warn="false" munge="no" preserveallsemicolons="true"
+                   outputfolder="${basedir}/${build.web.dir}" >
+         <fileset dir="${basedir}/web" >
+            <include name="jqGrid/ajaxfileupload.js" />
+            <include name="jqGrid/jquery.calculator-es.js" />
+            <include name="jqGrid/jquery.form.js" />
+            <include name="jqGrid/ui.datepicker-es.js" />
+            <include name="javascript/CIP_Main.js" />
+            <include name="javascript/controlDom.js" />
+            <include name="javascript/CIP_Ventas.js" />
+            <include name="javascript/Permisos.js" />
+            <include name="javascript/ValidaDato.js" />
+            <include name="javascript/ValidaFechas.js" />
+            <include name="javascript/ValidaNumeros.js" />
+            <include name="javascript/ajaxXml.js" />
+            <include name="javascript/jquery.hotkeys-0.7.9.min.js" />
+            <include name="javascript/jquery.imagemap.js" />
+            <include name="javascript/vta_bco.js" />
+            <include name="javascript/vta_ccaja.js" />
+            <include name="javascript/vta_cobros.js" />
+            <include name="javascript/vta_cte.js" />
+            <include name="javascript/vta_esmx.js" />
+            <include name="javascript/vta_factkt.js" />
+            <include name="javascript/vta_fpago.js" />
+            <include name="javascript/vta_invent.js" />
+            <include name="javascript/vta_producto.js" />
+            <include name="javascript/vta_pto.js" />
+            <include name="javascript/vta_suc.js" />
+            <include name="javascript/vta_taxes.js" />
+            <include name="javascript/vta_vend.js" />
+            <include name="javascript/vta_view.js" />
+            <include name="javascript/fixgetElementByIdIE.js" />
+            <include name="javascript/vta_Ayuda.js" />
+            <include name="javascript/cta_mail.js" />
+            <include name="javascript/vta_repo_formato.js" />
+            <include name="javascript/FishEyeMenu.js" />
+            <include name="javascript/CIP_PASS.js" />
+            <include name="javascript/vta_reports.js" />
+            <include name="javascript/vta_serv.js" />
+            <include name="javascript/gs_cte.js" />
+            <include name="javascript/vta_conceptos.js" />
+            <include name="javascript/vta_clientemails.js" />
+            <include name="javascript/vta_cuentas.js" />
+            <include name="javascript/vta_viewcxp.js" />
+            <include name="javascript/vta_prov.js" />
+            <include name="javascript/vta_compras.js" />
+            <include name="javascript/vta_com_recep.js" />
+            <include name="javascript/vta_com_view.js" />
+            <include name="javascript/vta_conpago.js" />
+            <include name="javascript/vta_com_recep_cxp.js" />
+            <include name="javascript/vta_cingresos.js" />
+            <include name="javascript/vta_cambio_precios.js" />
+            <include name="javascript/vta_productosOrden.js" />
+            <include name="javascript/vta_surtido.js" />
+            <include name="javascript/vta_fac_ped.js" />
+            <include name="javascript/dashboards.js" />
+            <include name="javascript/vta_fechasSurtido.js" />
+            <include name="javascript/vta_promociones.js" />
+            <include name="javascript/vta_modiFechaPromesa.js" />
+            <include name="javascript/vta_parchivo.js" />
+            <include name="javascript/vta_promociones_consecuentes.js" />
+            <include name="javascript/mlm_reporte.js" />
+            <include name="javascript/reportes_jasper.js" />
+            <include name="javascript/vta_promo.js" />
+            <include name="javascript/vta_sugerencias.js" />
+            <include name="javascript/vta_contrato.js" />
+            <include name="javascript/DomControlForm.js" />
+            <include name="javascript/DomTablas.js" />
+            <include name="javascript/vta_productosIngreso.js" />
+            <include name="javascript/vta_anticipoCte.js" />
+            <include name="javascript/vta_anticipoPrv.js" />
+            <include name="javascript/vta_transportistas.js" />
+            <include name="javascript/vta_dev_cte.js" />
+            <include name="javascript/vta_clienteFacturacion.js" />
+            <include name="javascript/vta_dirEntrega.js" />
+            <include name="javascript/pan_vta1.js" />
+            <include name="javascript/pan_inv.js" />
+            <include name="javascript/vta_ajustacobros.js" />
+            <include name="javascript/vta_edo_cta_cte.js" />
+            <include name="javascript/vta_edo_cta_bco.js" />
+            <include name="javascript/vta_edo_cta_prov.js" />
+            <include name="javascript/vta_ajustacobroscta.js" />
+            <include name="javascript/vta_empresa.js" />
+            <include name="javascript/vta_empresa_ed.js" />
+            <include name="javascript/vta_carga_nominas.js" />
+            <include name="javascript/rhh_nominas_print.js" />
+            <include name="javascript/RepoInventarios.js" />
+            <include name="javascript/RepoVentas.js" />
+            <include name="javascript/vta_notacred_prov.js" />
+            <include name="javascript/vta_ncview_prov.js" />
+            <include name="javascript/vta_con_ant_cte.js" />
+            <include name="javascript/vta_con_ant_prov.js" />
+            <include name="javascript/vta_conteo_ciclico.js" />
+            <include name="javascript/vta_notaserv_prov.js" />
+            <include name="javascript/vta_Estadisticas_Ventas.js" />
+            <include name="javascript/vta_controlinventarios.js" />
+            <include name="javascript/vta_estadisticasdecobranza.js" />
+            <include name="javascript/vta_repg_estadistica_cliente.js" />
+            <include name="javascript/vta_Gpo_Precios.js" />
+            <include name="javascript/vta_rep_pol_generadas.js" />
+            <include name="javascript/vta_dpto.js" />
+            <include name="javascript/vta_prodcat1.js" />
+            <include name="javascript/vta_prodcat2.js" />
+            <include name="javascript/vta_inv_view.js" />
+            <include name="javascript/vta_cobros_ctas.js" />
+            <include name="javascript/vta_reembolsos.js" />
+            <include name="javascript/vta_rep_timbres_fiscales.js" />
+            <include name="javascript/vta_facturacion_contratos.js" />
+            <include name="javascript/rhh_retencion_captura.js" />
+            <include name="javascript/rhh_retenciones_print.js" />
+            <include name="javascript/vta_catalogoRetenciones.js" />
+            <include name="javascript/rhh_rep_PreNomina.js" />
+            <include name="javascript/rhh_retenciones.js" />
+            <include name="javascript/rhh_Incidencias.js" />
+            <include name="javascript/rhh_Nueva_Nomina.js" />
+            <include name="javascript/rhh_nominas_pop_up.js" />
+            <include name="javascript/rhh_empleados.js" />
+            <include name="javascript/rhh_excepciones.js" />
+            <include name="javascript/rhh_ImpuestoSobreNomina.js" />
+            <include name="javascript/rhh_Calculo_Anual_ISR.js" />
+            <include name="javascript/rhh_Calculo_Anual_PTU.js" />
+            <include name="javascript/rhh_CalculaAguinaldo.js" />
+            <include name="javascript/vta_facturaContratos.js" />
+            <include name="javascript/vta_notascargo.js" />
+            <include name="javascript/vta_viewncargo.js" />
+            <include name="javascript/mlm_tree.js" />
+            <include name="javascript/vta_puntos.js" />
+            <include name="javascript/vta_notas_cargoprov.js" />
+            <include name="javascript/vta_notas_cargoprovdeta.js" />
+            
+            <include name="javascript/cofide_cursos.js" />
+            <include name="javascript/cofide_evaluacion.js" />
+            <include name="javascript/cofide_grupotrabajo.js" />
+            <include name="javascript/cofide_historial_llamada.js" />
+            <include name="javascript/cofide_historial_venta.js" />
+            <include name="javascript/cofide_instructor.js" />
+            <include name="javascript/cofide_progra_llamada.js" />
+            <include name="javascript/cofide_sede.js" />
+            <include name="javascript/cofide_telemarketing_ventas.js" />
+            <include name="javascript/cofide_telemarketing.js" />
+            
+           
+            <include name="javascript/vta_combo.js" />
+            <include name="javascript/vta_pto_venta.js" />
+            <include name="javascript/vta_pedidosmak.js" />
+            <include name="javascript/vta_productosmak.js" />
+            <include name="javascript/vta_pedidosmak.js" />
+            <include name="javascript/vta_clientesmak.js" />
+            <include name="javascript/vta_mensajesmak.js" />
+            <include name="javascript/vta_mak_prepara_pedido.js" />
+          
+            <include name="jqGrid/jquery.price_format.1.7.min.js" />
+            <include name="iCommerce/modules/mod_ecomm/js/ecomm.js" />
+            <include name="iCommerce/modules/mod_ecomm/js/ventas.js" />
+            <include name="jqGrid/ui.multiselect.css" />
+            <include name="jqGrid/ui.multiselect.js" />
+         </fileset>
+         <fileset dir="${basedir}/web" >
+            <include name="css/CIP_Main.css" />
+            <include name="css/PrinStilos.css" />
+            <include name="css/FishEyeMenu.css" />
+         </fileset>
+      </yuicompress>
+      <echo level="info" message="Compression Complete" /> -->
+   </target>
+</project>
