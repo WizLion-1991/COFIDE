@@ -875,7 +875,11 @@
                     //UNIDAD DE MEDIDA                    
                     System.out.println("########### nuevos campos de cfdi 3.3");
                     deta.setFieldString(strPrefijoDeta + "_UNIDAD_MEDIDA", request.getParameter(strPrefijoDeta + "_UNIDAD_MEDIDA"));
+//                    if (varSesiones.getIntNoUser() == 144) { //cambio de clave de producto
+//                        deta.setFieldString(strPrefijoDeta + "_CVE_PRODSERV", "80111500");
+//                    } else {
                     deta.setFieldString(strPrefijoDeta + "_CVE_PRODSERV", request.getParameter(strPrefijoDeta + "_CVE_PRODSERV"));
+//                    }
                     deta.setFieldDouble(strPrefijoDeta + "_TASAIVA1", Double.valueOf(request.getParameter(strPrefijoDeta + "_TASAIVA1"))); //tasa iva
                     deta.setFieldString(strPrefijoDeta + "_COMENTARIO", strNotas);
 
