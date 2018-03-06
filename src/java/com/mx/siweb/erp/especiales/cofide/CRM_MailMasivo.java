@@ -43,7 +43,7 @@ public class CRM_MailMasivo {
                 + "from crm_envio_masivo as crm, crm_envio_masivo_deta as crmd "
                 + "where crm.CRM_ID = crmd.CRM_ID and CRM_FECHA <= '" + strFechaActual + "' and CRM_PROCESADO = 0 and CRMD_LISTADO = 0 "
 //                + "ORDER BY crm.CRM_ID ASC, CRMD_EMAIL limit 230;";
-                + "ORDER BY crm.CRM_ID ASC, CRMD_EMAIL limit 280;";
+                + "ORDER BY crm.CRM_ID ASC, CRMD_EMAIL limit 300;";
 
         ResultSet rs = oConn.runQuery(strSql, true);
 
