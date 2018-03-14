@@ -160,9 +160,6 @@ public class testClasses1 {
              */
             //
             //
-            
-       
-            
 
 //            String strCadena = "anita lava la tina";
 //            String strCadenaResultado = "", strTmp = "";
@@ -170,12 +167,10 @@ public class testClasses1 {
 //                strCadenaResultado += strCadena.substring((strCadena.length() - i) - 1, strCadena.length() - i);
 //            }
 //            System.out.println("cadena: " + strCadenaResultado);
-
 //            String strCadenaReverse = "";
 //            StringBuilder buildCadena = new StringBuilder(strCadena);
 //            strCadenaReverse = buildCadena.reverse().toString();
 //            System.out.println("cadena al revesada: " + strCadenaReverse);
-
 //            String strgetHIstorialCte = new CRM_Envio_Template().strGetHistorialContactoVta(oConn, "1660597");
 //            System.out.println("cuadro: \n" + strgetHIstorialCte);
 //            new CRM_Envio_Template().Cofide3Cursos(oConn, 162, "g-unit_jccm@live.com.mx", "jaja saludos", 1, "PERSONALIZADO", 786);
@@ -297,8 +292,10 @@ public class testClasses1 {
 //            System.out.println(" fecha " + strFechOK2);
             /**
              * ex participantes
-             */
-//            
+             */           
+            
+            
+            
             ArrayList<String> listaCTID = new ArrayList<String>();
             int intmeh = 0;
             String strsql = "select DISTINCT CT_ID from view_ventasglobales where FAC_ANULADA = 0 and CANCEL = 0 and FAC_PAGADO = 1 and FAC_VALIDA = 1 and FAC_FECHA >= '20171101';";
@@ -347,9 +344,9 @@ public class testClasses1 {
 //            xls.importaXLSXMetas("C:\\Users\\Desarrollo_COFIDE\\Desktop\\test.xls");
 //            COFIDE_ReadXls xls = new COFIDE_ReadXls(oConn);
 //            xls.readXLS("C:\\Users\\Desarrollo_COFIDE\\Desktop\\test.xls");
-            /**
-             * ex participantes
-             */
+                /**
+                 * ex participantes
+                 */
 //            System.out.println(new Telemarketing().getParticipantes(oConn, "1412"));
 //            ArrayList<String> arreglotime = new ArrayList<String>();
 //            arreglotime.add("julio");
@@ -413,13 +410,19 @@ public class testClasses1 {
 //            setPuntosLealtadCofide(oConn); //*1 llenar tabla calcula_PuntosLealtad*/
 //setPuntosIniciales(oConn); //ultimo paso
 //
-            oConn.close();
-        } catch (Exception ex) {
+                oConn.close();
+            }catch (Exception ex) {
             Logger.getLogger(testClasses1.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
 
-    }
+        }
+
+    
+
+    
+
+    
 
     protected String FormateaTextoXml(String strValor, boolean bolAmpersand) {
         /*

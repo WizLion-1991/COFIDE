@@ -1189,6 +1189,15 @@ function showFieldFechaExtra() {
  * @returns {undefined}
  */
 function LoadDatosCurso() {
+    var btnShowMaterial = document.getElementById("CC_VIEW_MATERIAL");
+    if (btnShowMaterial != null) {
+        btnShowMaterial.style.backgroundColor = "orange";
+    }
+
+    var btnUpMaterial = document.getElementById("CC_BTN_MAT");
+    if (btnUpMaterial != null) {
+        btnUpMaterial.style.backgroundColor = "orange";
+    }
     var strPost = "";
     var strId_Curso = document.getElementById("CC_CURSO_ID").value;
     var strId_Sede = document.getElementById("CC_SEDE_ID").value;
@@ -1496,5 +1505,20 @@ function UpQR() {
             alert("Se aceptan archivos con extension PNG");
             File.focus();
         }
+    }
+}
+
+/**
+ * exportar material de curso, ingresado para su validación
+ * @returns {undefined}
+ */
+function printMaterial() {
+
+    var strIdCurso = document.getElementById("CC_CURSO_ID").value;
+    if (document.getElementById("CC_MATERIAL").value != "") {
+        var strPathDocumento = "document/MaterialCurso/MaterialCurso_" + strIdCurso + ".pdf";
+        Abrir_Link(strPathDocumento, "_new", 800, 600, 0, 0);
+    } else {
+        alert("Es necesario subir un material para poderlo ver.");
     }
 }

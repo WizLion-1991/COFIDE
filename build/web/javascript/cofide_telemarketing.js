@@ -3089,7 +3089,7 @@ function checkInBound() {
                 strBase = datos.replace("OK", "");
                 document.getElementById("CT_CLAVE_DDBB").value = strBase;
 
-                if (strBase == "BE-INBOUND" || strBase == "BE-CORREO" || strBase == "BE-85" || strBase == "" || strBase == 'BE-AAA') {
+                if (strBase == "BE-INBOUND" || strBase == "BE-CORREO" || strBase == "BE-85" || strBase == "" || strBase == 'BE-AAA' || strBase == 'BE-5') {
 //                    document.getElementById("CT_MKT").parentNode.parentNode.style.display = "";
 //                    document.getElementById("CT_MKT").value = "0";
                     document.getElementById("CT_MKT").disabled = false;
@@ -4290,4 +4290,8 @@ function LoadCursoSugerido() {
 function OpnDiagIncidencias() {
 //    Abrir_Link("COFIDE_Calendario_cursos.jsp", "_blank", 800, 600, 0, 0);
     window.open("incidencia/index.html", '_blank');
+}
+function OpnDiagSepomex() {
+//    Abrir_Link("COFIDE_Calendario_cursos.jsp", "_blank", 800, 600, 0, 0);
+    window.open("sepomex/index.html", '_blank');
 }

@@ -169,6 +169,7 @@ function printArchivoPago(opc) {
             success: function (datos) {
                 if (datos.substring(0, 2) == "OK") {
                     var strPathDocumento = datos.replace("OK.", "");
+                    alert(strPathDocumento);
                     Abrir_Link(strPathDocumento, "_new", 800, 600, 0, 0);
                     $("#dialogWait").dialog("close");
                 } else {

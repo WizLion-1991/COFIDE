@@ -57,7 +57,7 @@
                                     + "LEFT JOIN cfd_incidencia_problema on CCI_TIPO_PROBLEMA = CIP_ID "
                                     + "LEFT JOIN cfd_incidencia_modulo on CCI_MODULO_CRM = CMO_ID "
                                     + "where CCI_US_ALTA =  " + strIdUsuario
-                                    + " order by CCI_FECHA_ALTA;";
+                                    + " order by CCI_FECHA_ALTA desc , CCI_HORA_ALTA desc;";
                             String strFechaIni = "";
                             String strFechaFin = "";
                             String strIdIncidencia = "";
